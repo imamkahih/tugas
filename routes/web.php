@@ -19,12 +19,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['middkeware' => ['web']], function () {
+Route::group(['middleware' => ['web']], function () {
     Route::get('/', function () {
         return view('welcome');
     })->middleware('guest');
     Route::get('/tasks', [TaskController::class, 'index']);
-    route::post('/task', [TaskController::class, 'store']);
+    Route::post('/task', [TaskController::class, 'store']);
+    Route::post('/task', [TaskController::class, 'search'])->name('search');
 });
 
 Auth::routes();
