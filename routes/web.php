@@ -25,6 +25,9 @@ Route::group(['middleware' => ['web']], function () {
     })->middleware('guest');
     Route::get('/tasks', [TaskController::class, 'index']);
     Route::post('/task', [TaskController::class, 'store']);
+    Route::get('/task/edit/{id}', [TaskController::class, 'edit']);
+    Route::post('/task/update/{id}', [TaskController::class, 'update']);
+    Route::delete('/task/{id}', [TaskController::class, 'delete']);
     Route::post('/task', [TaskController::class, 'search'])->name('search');
 });
 

@@ -26,6 +26,21 @@ class TaskController extends Controller
         $request->user()->tasks()->create(['name' => $request->name]);
         return redirect('/tasks');
     }
+    public function edit($id)
+    {
+        $task = Task::whereId($id)->first();
+        return view('tasks.edit')->with('task', $task);
+    }
+    public function update(Request $request, $id)
+    {
+        $task = Task::find($id)->update($request->all());
+        return redirect('/tasks')->with('success', 'Berhasil diupdate!');
+    }
+    public function delete(Request $request, $id)
+    {
+        $task = Task::find($id)->delete();
+        return redirect('/tasks')->with('success', 'Berhasil dihapus!');
+    }
     public function search(Request $request)
     {
     }
