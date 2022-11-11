@@ -52,15 +52,21 @@
                     <div class="panel-body p-3">
                         <table class="table table-striped task-table">
                             <thead>
-                                <th class="align-middle">Task Name</th>
-                                <th class="text-end" colspan="2">
-                                    <form class="form" method="get" action="{{ route('search') }}">
-                                        <div class="form-group">
-                                            <input type="text" name="search" class="form-control w-50 d-inline"
-                                                id="search" placeholder="Keyword...">
-                                            <button type="submit" class="btn btn-primary mx-1 mb-1">Search</button>
+                                <th class="align-middle" colspan="4">
+                                    <div class="row">
+                                        <div class="col-md-7 my-auto">
+                                            Task Name
                                         </div>
-                                    </form>
+                                        <div class="col-md-5">
+                                            <form class="form" method="get" action="{{ route('search') }}">
+                                                <div class="form-group d-flex">
+                                                    <input type="text" name="search" class="form-control w-100 d-inline"
+                                                        id="search" placeholder="Keyword...">
+                                                    <button type="submit" class="btn btn-primary mx-1 mb-1">Search</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </th>
                             </thead>
                             <tbody>
@@ -89,6 +95,42 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            @else
+                <div class="panel panel-default border rounded mb-3">
+                    <div class="panel-heading border-bottom text-center fw-bold p-3 bg-light">
+                        Tasks Data
+                    </div>
+
+                    <div class="panel-body p-3">
+                        <table class="table table-striped task-table">
+                            <thead>
+                                <th class="align-middle" colspan="4">
+                                    <div class="row">
+                                        <div class="col-md-7 my-auto">
+                                            Task Name
+                                        </div>
+                                        <div class="col-md-5">
+                                            <form class="form" method="get" action="{{ route('search') }}">
+                                                <div class="form-group d-flex">
+                                                    <input type="text" name="search" class="form-control w-100 d-inline"
+                                                        id="search" placeholder="Keyword...">
+                                                    <button type="submit" class="btn btn-primary mx-1 mb-1">Search</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="table-text text-center" colspan="3">
+                                        <div class="text-danger">Data tidak ditemukan</div>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
